@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -73,7 +74,10 @@ namespace uploaderProject.Controllers
                 {
                     var cellText = namedWorksheet.Cells[$"A{i}"].ToText().Replace(",", "");
                     if (cellText != null && cellText != "")
-                    { lottoNames.Add(cellText); }
+                    {
+                        lottoNames.Add(cellText);
+                        Debug.WriteLine(cellText);
+                    }
                     
                 }
 
