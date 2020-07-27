@@ -67,10 +67,9 @@ namespace uploaderProject.Controllers
                 
                 //Get a WorkSheet by name. If the worksheet doesn't exist, throw an exeption
                 ExcelWorksheet namedWorksheet = excelPackage.Workbook.Worksheets["MM Lotto"];
-
                 var lottoNames = new List<string>();
 
-                for (int i = 1; i < 100; i++)
+                for (int i = 1; i < namedWorksheet.Dimension.Rows; i++)
                 {
                     var cellText = namedWorksheet.Cells[$"A{i}"].ToText().Replace(",", "");
                     if (cellText != null && cellText != "")
